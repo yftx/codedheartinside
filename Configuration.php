@@ -38,16 +38,16 @@ class Configuration implements ConfigurationInterface
      */
     private $projectConfigurationFilePath = '';
     private $displayDebugInformation = false;
-    private $minimumThreshold= 2;
+    private $minimumTreshhold = 2;
     private $minimumSupport = 0.1;
     private $minimumConfidence = 0.2;
 
-    public function __construct()
+    public function __construct(Installer $installer)
     {
-        $this->rootDirectory = __DIR__;
-        $this->resourceDirectory = $this->rootDirectory . '/Resources';
-        $this->tempDirectory = $this->resourceDirectory . '/temp';
-        $this->projectConfigurationFilePath = $this->resourceDirectory . '/configuration.yml';
+        $this->rootDirectory = $installer->getRootDirectory();
+        $this->resourceDirectory = $installer->getResourceDirectory();
+        $this->tempDirectory = $installer->getTempDirectory();
+        $this->projectConfigurationFilePath = $installer->getResourceDirectory() . '/configuration.yml';
     }
 
     /**
@@ -96,14 +96,14 @@ class Configuration implements ConfigurationInterface
 
     public function setMinimumThreshold($minimumThreshold)
     {
-        $this->minimumThreshold = $minimumThreshold;
+        $this->minimumTreshhold = $minimumThreshold;
 
         return $this;
     }
 
     public function getMinimumThreshold()
     {
-        return $this->minimumThreshold;
+        return $this->minimumTreshhold;
     }
 
 

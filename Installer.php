@@ -71,7 +71,7 @@ class Installer implements InstallerInterface
     public function setRootDirectory($path = '')
     {
         if (! is_dir($path)) {
-            throw new MissingDirectoryException('The provided path is non-existing');
+            throw new MissingDirectoryException('Het opgegeven pad bestaat niet');
         }
 
         $this->rootDirectory = $path;
@@ -87,7 +87,7 @@ class Installer implements InstallerInterface
     public function setResourceDirectory($path = '')
     {
         if (! is_dir($path)) {
-            throw new MissingDirectoryException('The provided path is non-existing');
+            throw new MissingDirectoryException('Het opgegeven pad bestaat niet');
         }
 
         $this->resourceDirectory = $path;
@@ -103,7 +103,7 @@ class Installer implements InstallerInterface
     public function setTempDirectory($path = '')
     {
         if (! is_dir($path)) {
-            throw new MissingDirectoryException('The provided path is non-existing');
+            throw new MissingDirectoryException('Het opgegeven pad bestaat niet');
         }
 
         $this->tempDirectory = $path;
@@ -119,11 +119,43 @@ class Installer implements InstallerInterface
     public function setProjectConfigurationFilePath($path = '')
     {
         if (! is_dir($path)) {
-            throw new MissingDirectoryException('The provided path is non-existing');
+            throw new MissingDirectoryException('Het opgegeven pad bestaat niet');
         }
 
         $this->projectConfigurationFilePath = $path;
 
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRootDirectory()
+    {
+        return $this->rootDirectory;
+    }
+
+    /**
+     * @return string
+     */
+    public function getResourceDirectory()
+    {
+        return $this->resourceDirectory;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTempDirectory()
+    {
+        return $this->tempDirectory;
+    }
+
+    /**
+     * @return string
+     */
+    public function getProjectConfigurationFilePath()
+    {
+        return $this->projectConfigurationFilePath;
     }
 }

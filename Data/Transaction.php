@@ -39,7 +39,8 @@ class Transaction implements TransactionInterface
         fclose($dataSetFile);
 
         // Reduce the number with one because the last line is always an empty one
-        return $lines ? $lines - 1 : 0 ;
+        //return $lines ? $lines - 1 : 0 ;
+        return $lines ? $lines : 0 ;
     }
 
     public function getTransactionItems($dataSetRecord)
